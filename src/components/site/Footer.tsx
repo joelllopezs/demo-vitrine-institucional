@@ -14,7 +14,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-forest text-cream/80">
-      <div className="container-vm grid gap-12 py-16 md:grid-cols-3">
+      <div className="container-vm grid gap-10 py-12 sm:py-16 md:grid-cols-3 md:gap-12">
         <div>
           <Logo name={info.name} />
           <p className="mt-5 max-w-xs text-sm leading-relaxed">{info.description}</p>

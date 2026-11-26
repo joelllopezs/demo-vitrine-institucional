@@ -26,4 +26,3 @@ Login simulado no navegador: **não é seguro** e os dados ficam só no navegado
 As fotos vêm do Unsplash por URL e cada uma tem fallback automático. Se alguma não combinar com o prato,
 troque a URL em `src/data/images.ts` ou pelo próprio painel (URL ou upload local).
 Uploads são redimensionados e ficam no localStorage (limite do navegador ~5 MB).
-# demo-vitrine-institucional

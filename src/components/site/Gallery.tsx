@@ -1,4 +1,4 @@
-import { X } from 'lucide-react'
+import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { useStore } from '../../store'
 import Reveal from '../Reveal'
@@ -33,12 +33,12 @@ export default function Gallery() {
   const current = open !== null ? gallery[open] : undefined
 
   return (
-    <section id="galeria" className="bg-sand py-24 sm:py-32">
+    <section id="galeria" className="bg-sand py-16 sm:py-24 lg:py-32">
       <div className="container-vm">
         <Reveal className="mb-12 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <span className="eyebrow">Galeria</span>
-            <h2 className="mt-5 text-4xl font-bold sm:text-5xl">Um olhar sobre a nossa mesa.</h2>
+            <h2 className="mt-5 text-3xl font-bold sm:text-4xl lg:text-5xl">Um olhar sobre a nossa mesa.</h2>
           </div>
           <p className="max-w-sm text-forest/70">Ambiente, buffet, fogão a lenha e pratos que fazem a viagem valer a pena.</p>
         </Reveal>
@@ -57,8 +57,8 @@ export default function Gallery() {
                   aria-label={`Ampliar: ${g.caption}`}
                 >
                   <SafeImage src={g.url} alt={g.caption} className="h-full w-full" imgClassName="transition duration-700 group-hover:scale-110" />
-                  <div className="absolute inset-0 flex items-end bg-gradient-to-t from-forest/80 via-transparent to-transparent p-4 opacity-0 transition duration-500 group-hover:opacity-100">
-                    <span className="text-sm font-medium text-cream">{g.caption}</span>
+                  <div className="absolute inset-0 flex items-end bg-gradient-to-t from-forest/80 via-transparent to-transparent p-3 opacity-100 transition duration-500 sm:p-4 sm:opacity-0 sm:group-hover:opacity-100">
+                    <span className="line-clamp-2 text-xs font-medium text-cream sm:text-sm">{g.caption}</span>
                   </div>
                 </button>
               </Reveal>
@@ -69,11 +69,35 @@ export default function Gallery() {
 
       {current && (
         <div className="fixed inset-0 z-[90] flex animate-pop-in items-center justify-center bg-forest/95 p-4" onClick={() => setOpen(null)}>
-          <button className="absolute right-5 top-5 rounded-full bg-white/10 p-3 text-cream hover:bg-white/20" aria-label="Fechar">
+          <button className="absolute right-3 top-3 rounded-full bg-white/10 p-3 text-cream hover:bg-white/20 sm:right-5 sm:top-5" aria-label="Fechar">
             <X className="h-6 w-6" />
           </button>
+          {gallery.length > 1 && (
+            <>
+              <button
+                className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 p-3 text-cream hover:bg-white/20 sm:left-5"
+                aria-label="Imagem anterior"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  setOpen((o) => (o === null ? o : (o - 1 + gallery.length) % gallery.length))
+                }}
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+              <button
+                className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/10 p-3 text-cream hover:bg-white/20 sm:right-5"
+                aria-label="Próxima imagem"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  setOpen((o) => (o === null ? o : (o + 1) % gallery.length))
+                }}
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
+            </>
+          )}
           <figure className="max-h-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
-            <SafeImage src={current.url} alt={current.caption} className="max-h-[78vh] min-h-[40vh] min-w-[min(80vw,640px)] rounded-2xl" imgClassName="!h-auto max-h-[78vh] !w-auto object-contain" eager />
+            <SafeImage src={current.url} alt={current.caption} className="max-h-[78vh] min-h-[40vh] min-w-[min(72vw,640px)] rounded-2xl" imgClassName="!h-auto max-h-[78vh] !w-auto object-contain" eager />
             <figcaption className="mt-4 text-center text-cream/80">{current.caption}</figcaption>
           </figure>
         </div>

@@ -27,7 +27,7 @@ export default function InfoPage() {
         <button className="btn-green"><Save className="h-4 w-4" /> Salvar informações</button>
       </div>
 
-      <section className="grid gap-5 rounded-3xl bg-white p-6 shadow-sm md:grid-cols-2">
+      <section className="grid gap-5 rounded-3xl bg-white p-4 shadow-sm sm:p-6 md:grid-cols-2">
         <div className="md:col-span-2">
           <label className="label">Nome do restaurante</label>
           <input className="field" value={f.name} onChange={(e) => set('name', e.target.value)} />
@@ -50,8 +50,8 @@ export default function InfoPage() {
         </div>
       </section>
 
-      <section className="rounded-3xl bg-white p-6 shadow-sm">
-        <div className="mb-4 flex items-center justify-between">
+      <section className="rounded-3xl bg-white p-4 shadow-sm sm:p-6">
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
           <h2 className="text-xl font-bold">Horário de funcionamento</h2>
           <button type="button" className="btn-outline btn-sm" onClick={() => set('hours', [...f.hours, ''])}><Plus className="h-3.5 w-3.5" /> Adicionar linha</button>
         </div>
@@ -65,7 +65,7 @@ export default function InfoPage() {
         </div>
       </section>
 
-      <section className="grid gap-5 rounded-3xl bg-white p-6 shadow-sm md:grid-cols-3">
+      <section className="grid gap-5 rounded-3xl bg-white p-4 shadow-sm sm:p-6 md:grid-cols-3">
         <h2 className="text-xl font-bold md:col-span-3">Redes sociais</h2>
         {(['instagram', 'facebook', 'youtube'] as const).map((k) => (
           <div key={k}>

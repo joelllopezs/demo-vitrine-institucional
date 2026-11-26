@@ -56,8 +56,8 @@ export default function Products() {
 
       <div className="grid gap-4 md:grid-cols-2">
         {list.map((p) => (
-          <article key={p.id} className="flex gap-4 rounded-3xl bg-white p-3 shadow-sm transition hover:shadow-lg">
-            <SafeImage src={p.image} alt={p.name} className="h-28 w-28 shrink-0 rounded-2xl sm:h-32 sm:w-36" />
+          <article key={p.id} className="flex gap-3 rounded-3xl bg-white p-3 shadow-sm transition hover:shadow-lg sm:gap-4">
+            <SafeImage src={p.image} alt={p.name} className="h-24 w-24 shrink-0 rounded-2xl min-[420px]:h-28 min-[420px]:w-28 sm:h-32 sm:w-36" />
             <div className="flex min-w-0 flex-1 flex-col py-1 pr-1">
               <div className="flex items-start justify-between gap-2">
                 <h3 className="truncate text-base font-bold">{p.name}</h3>
@@ -81,7 +81,7 @@ export default function Products() {
                   {p.available ? 'Disponível' : 'Indisponível'}
                 </button>
               </div>
-              <div className="mt-auto flex gap-2 pt-3">
+              <div className="mt-auto flex flex-wrap gap-2 pt-3">
                 <button className="btn-outline btn-sm" onClick={() => setEditing({ ...p })}><Pencil className="h-3.5 w-3.5" /> Editar</button>
                 <button className="btn-sm btn rounded-full border border-red-200 text-red-700 hover:bg-red-700 hover:text-white" onClick={() => setToDelete(p)}><Trash2 className="h-3.5 w-3.5" /> Excluir</button>
               </div>
@@ -143,7 +143,7 @@ function ProductModal({ draft, onClose, onSave }: { draft: Draft | null; onClose
 
   return (
     <Modal open onClose={onClose} title={d.id ? 'Editar produto' : 'Novo produto'} wide>
-      <form onSubmit={submit} className="grid gap-6 p-6 md:grid-cols-2">
+      <form onSubmit={submit} className="grid gap-6 p-4 sm:p-6 md:grid-cols-2">
         <div className="space-y-4">
           <div>
             <label className="label">Nome</label>
@@ -175,7 +175,7 @@ function ProductModal({ draft, onClose, onSave }: { draft: Draft | null; onClose
         </div>
         <div className="flex flex-col">
           <ImagePicker value={d.image} onChange={(v) => set('image', v)} />
-          <div className="mt-auto flex justify-end gap-3 pt-6">
+          <div className="mt-auto flex flex-col-reverse gap-3 pt-6 min-[420px]:flex-row min-[420px]:justify-end">
             <button type="button" className="btn-outline btn-sm" onClick={onClose}>Cancelar</button>
             <button className="btn-green btn-sm">{d.id ? 'Salvar alterações' : 'Cadastrar produto'}</button>
           </div>

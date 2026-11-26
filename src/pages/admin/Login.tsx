@@ -27,7 +27,7 @@ export default function Login({ onSuccess }: { onSuccess: () => void }) {
   }
 
   return (
-    <div className="grid min-h-screen lg:grid-cols-2">
+    <div className="grid min-h-[100dvh] lg:grid-cols-2">
       <div className="relative hidden overflow-hidden bg-forest lg:block">
         <SafeImage src={IMG.fogao} alt="Fogão a lenha com panelas de ferro" className="absolute inset-0 !bg-forest" eager />
         <div className="absolute inset-0 bg-gradient-to-t from-forest via-forest/50 to-forest/40" />

@@ -31,11 +31,11 @@ export default function Modal({
     <div className="fixed inset-0 z-[90] flex items-end justify-center sm:items-center sm:p-6" role="dialog" aria-modal="true" aria-label={title}>
       <div className="absolute inset-0 bg-forest/70 backdrop-blur-sm" onClick={onClose} />
       <div
-        className={`relative flex max-h-[94vh] w-full animate-pop-in flex-col overflow-hidden rounded-t-3xl bg-cream shadow-2xl sm:rounded-3xl ${wide ? 'max-w-3xl' : 'max-w-md'}`}
+        className={`relative flex max-h-[92dvh] w-full animate-pop-in flex-col overflow-hidden rounded-t-3xl bg-cream shadow-2xl sm:rounded-3xl ${wide ? 'max-w-3xl' : 'max-w-md'}`}
       >
-        <div className="flex items-center justify-between border-b border-forest/10 bg-white px-6 py-4">
-          <h3 className="text-xl font-bold">{title}</h3>
-          <button onClick={onClose} aria-label="Fechar" className="rounded-full p-2 transition hover:bg-sand">
+        <div className="flex items-center justify-between gap-3 border-b border-forest/10 bg-white px-5 py-4 sm:px-6">
+          <h3 className="min-w-0 truncate text-lg font-bold sm:text-xl">{title}</h3>
+          <button onClick={onClose} aria-label="Fechar" className="shrink-0 rounded-full p-2 transition hover:bg-sand">
             <X className="h-5 w-5" />
           </button>
         </div>

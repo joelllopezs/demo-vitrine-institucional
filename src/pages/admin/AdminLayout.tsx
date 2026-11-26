@@ -71,7 +71,7 @@ export default function AdminLayout({ onLogout }: { onLogout: () => void }) {
   )
 
   return (
-    <div className="min-h-screen bg-[#f3ecdd]">
+    <div className="min-h-[100dvh] bg-[#f3ecdd]">
       <aside className="fixed inset-y-0 left-0 hidden w-64 lg:block">{sidebar}</aside>
       {open && (
         <div className="fixed inset-0 z-[80] lg:hidden">
@@ -93,7 +93,7 @@ export default function AdminLayout({ onLogout }: { onLogout: () => void }) {
             <ExternalLink className="h-5 w-5" />
           </a>
         </header>
-        <main className="mx-auto max-w-6xl p-5 sm:p-8">
+        <main className="mx-auto max-w-6xl p-4 sm:p-8">
           <Outlet />
         </main>
       </div>

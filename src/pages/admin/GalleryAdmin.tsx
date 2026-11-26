@@ -30,7 +30,7 @@ export default function GalleryAdmin() {
         <p className="mt-1 text-forest/65">{gallery.length} imagens exibidas na vitrine.</p>
       </div>
 
-      <form onSubmit={add} className="grid gap-5 rounded-3xl bg-white p-6 shadow-sm md:grid-cols-2">
+      <form onSubmit={add} className="grid gap-5 rounded-3xl bg-white p-4 shadow-sm sm:p-6 md:grid-cols-2">
         <ImagePicker value={url} onChange={setUrl} aspect="aspect-[16/9]" />
         <div className="flex flex-col">
           <label className="label">Legenda</label>
@@ -39,7 +39,7 @@ export default function GalleryAdmin() {
         </div>
       </form>
 
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
         {gallery.map((g) => (
           <figure key={g.id} className="group relative overflow-hidden rounded-2xl bg-white shadow-sm">
             <SafeImage src={g.url} alt={g.caption} className="aspect-[4/3]" imgClassName="transition duration-500 group-hover:scale-105" />

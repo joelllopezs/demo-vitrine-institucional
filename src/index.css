@@ -4,7 +4,8 @@
 
 @layer base {
   html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-  body { @apply bg-cream font-sans text-forest antialiased; }
+  body { @apply overflow-x-clip bg-cream font-sans text-forest antialiased; }
+  html { -webkit-text-size-adjust: 100%; }
   h1, h2, h3, h4 { @apply font-display; }
   ::selection { background: #c49a52; color: #183d2c; }
   @media (prefers-reduced-motion: reduce) {
@@ -24,7 +25,7 @@
   .btn-sm { @apply px-4 py-2 text-xs; }
   .eyebrow { @apply inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] text-gold; }
   .eyebrow::before { content: ''; @apply h-px w-8 bg-gold; }
-  .field { @apply w-full rounded-xl border border-forest/15 bg-white px-4 py-2.5 text-sm text-forest outline-none transition placeholder:text-forest/35 focus:border-gold focus:ring-2 focus:ring-gold/30; }
+  .field { @apply w-full rounded-xl border border-forest/15 bg-white px-4 py-2.5 text-base text-forest outline-none sm:text-sm transition placeholder:text-forest/35 focus:border-gold focus:ring-2 focus:ring-gold/30; }
   .label { @apply mb-1.5 block text-xs font-semibold uppercase tracking-wide text-forest/70; }
   .skeleton {
     background: linear-gradient(90deg, #e9ddc8 25%, #f3ead8 50%, #e9ddc8 75%);

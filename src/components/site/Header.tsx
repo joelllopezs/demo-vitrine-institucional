@@ -74,8 +74,8 @@ export default function Header() {
 
       {/* Menu mobile */}
       <div
-        className={`overflow-hidden bg-forest transition-[max-height,opacity] duration-500 lg:hidden ${
-          open ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0'
+        className={`overflow-y-auto bg-forest transition-[max-height,opacity] duration-500 lg:hidden ${
+          open ? 'max-h-[calc(100dvh-4.5rem)] opacity-100' : 'max-h-0 overflow-hidden opacity-0'
         }`}
       >
         <nav className="container-vm flex flex-col gap-1 py-4" aria-label="Mobile">

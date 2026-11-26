@@ -24,24 +24,24 @@ export default function Dashboard() {
           <h1 className="text-3xl font-bold sm:text-4xl">Dashboard</h1>
           <p className="mt-1 text-forest/65">Visão geral da sua vitrine.</p>
         </div>
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-3">
           <Link to="/admin/produtos" className="btn-green btn-sm"><Package className="h-4 w-4" /> Gerenciar produtos</Link>
           <a href="/" target="_blank" rel="noreferrer" className="btn-outline btn-sm"><Eye className="h-4 w-4" /> Visualizar site</a>
         </div>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
         {kpis.map((k) => (
-          <Link key={k.label} to={k.to} className="group rounded-3xl bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+          <Link key={k.label} to={k.to} className="group rounded-3xl bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-xl sm:p-6">
             <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-forest text-gold transition group-hover:rotate-6"><k.icon className="h-5 w-5" /></span>
-            <p className="mt-5 font-display text-4xl font-bold">{k.value}</p>
+            <p className="mt-4 font-display text-3xl font-bold sm:mt-5 sm:text-4xl">{k.value}</p>
             <p className="mt-1 text-sm text-forest/65">{k.label}</p>
           </Link>
         ))}
       </div>
 
       <div className="grid gap-6 lg:grid-cols-5">
-        <section className="rounded-3xl bg-white p-6 shadow-sm lg:col-span-3">
+        <section className="rounded-3xl bg-white p-5 shadow-sm sm:p-6 lg:col-span-3">
           <h2 className="text-xl font-bold">Produtos por categoria</h2>
           <div className="mt-6 space-y-4">
             {categories.length === 0 && <p className="text-sm text-forest/55">Nenhuma categoria cadastrada.</p>}
@@ -60,7 +60,7 @@ export default function Dashboard() {
               )
             })}
           </div>
-          <div className="mt-8 flex items-center gap-5 rounded-2xl bg-cream p-4">
+          <div className="mt-8 flex items-center gap-4 rounded-2xl bg-cream p-4 sm:gap-5">
             <div
               className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full"
               style={{ background: `conic-gradient(#315B42 ${pct * 3.6}deg, #E9DDC8 0)` }}
@@ -74,7 +74,7 @@ export default function Dashboard() {
           </div>
         </section>
 
-        <section className="rounded-3xl bg-white p-6 shadow-sm lg:col-span-2">
+        <section className="rounded-3xl bg-white p-5 shadow-sm sm:p-6 lg:col-span-2">
           <h2 className="flex items-center gap-2 text-xl font-bold"><History className="h-5 w-5 text-gold" /> Últimas alterações</h2>
           <ul className="mt-5 space-y-4">
             {activity.slice(0, 7).map((a) => (
@@ -90,12 +90,12 @@ export default function Dashboard() {
         </section>
       </div>
 
-      <Link to="/admin/informacoes" className="group flex items-center justify-between rounded-3xl bg-forest p-6 text-cream transition hover:bg-pine">
+      <Link to="/admin/informacoes" className="group flex items-center justify-between gap-4 rounded-3xl bg-forest p-5 sm:p-6 text-cream transition hover:bg-pine">
         <div>
           <p className="font-display text-xl font-bold">Atualize telefone, horário e redes sociais</p>
           <p className="text-sm text-cream/70">As mudanças aparecem na hora no rodapé e na seção de localização.</p>
         </div>
-        <ArrowRight className="h-6 w-6 text-gold transition group-hover:translate-x-1" />
+        <ArrowRight className="h-6 w-6 shrink-0 text-gold transition group-hover:translate-x-1" />
       </Link>
     </div>
   )

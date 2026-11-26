@@ -16,17 +16,17 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-forest/90 via-forest/60 to-forest/20" />
       <div className="absolute inset-0 bg-gradient-to-t from-forest via-transparent to-forest/60" />
 
-      <div className="container-vm relative z-10 pb-24 pt-32">
+      <div className="container-vm relative z-10 pb-24 pt-28 sm:pt-32">
         <div className="max-w-3xl">
           <span className="eyebrow animate-fade-up">Restaurante de rodovia · Cozinha mineira</span>
           <h1
-            className="mt-6 animate-fade-up text-5xl font-extrabold leading-[1.02] text-cream sm:text-6xl lg:text-8xl"
+            className="mt-6 animate-fade-up text-[2.5rem] font-extrabold leading-[1.05] text-cream sm:text-6xl lg:text-7xl xl:text-8xl"
             style={{ animationDelay: '120ms' }}
           >
             UMA PARADA COM SABOR DE <span className="italic text-gold">MINAS.</span>
           </h1>
           <p
-            className="mt-7 max-w-xl animate-fade-up text-lg leading-relaxed text-cream/85 sm:text-xl"
+            className="mt-6 max-w-xl animate-fade-up text-base leading-relaxed text-cream/85 sm:mt-7 sm:text-xl"
             style={{ animationDelay: '260ms' }}
           >
             Na estrada, seu melhor destino é encontrar o verdadeiro sabor da comida mineira.

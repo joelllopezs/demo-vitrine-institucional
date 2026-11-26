@@ -13,7 +13,7 @@ const pillars = [
 export default function History() {
   const name = useStore((s) => s.info.name)
   return (
-    <section id="historia" className="grain relative overflow-hidden bg-cream py-24 sm:py-32">
+    <section id="historia" className="grain relative overflow-hidden bg-cream py-16 sm:py-24 lg:py-32">
       <div className="container-vm grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
         <Reveal className="relative order-2 lg:order-1">
           <div className="grid grid-cols-6 grid-rows-6 gap-3 sm:gap-4">
@@ -42,7 +42,7 @@ export default function History() {
         <div className="order-1 lg:order-2">
           <Reveal>
             <span className="eyebrow">Nossa história</span>
-            <h2 className="mt-5 text-4xl font-bold leading-tight sm:text-5xl">
+            <h2 className="mt-5 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
               Da cozinha da vó para a beira da estrada.
             </h2>
           </Reveal>

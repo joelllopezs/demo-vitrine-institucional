@@ -6,11 +6,11 @@ import Reveal from '../Reveal'
 export default function Location() {
   const info = useStore((s) => s.info)
   return (
-    <section id="localizacao" className="bg-sand py-24 sm:py-32">
+    <section id="localizacao" className="bg-sand py-16 sm:py-24 lg:py-32">
       <div className="container-vm grid gap-10 lg:grid-cols-2">
         <Reveal>
           <span className="eyebrow">Localização</span>
-          <h2 className="mt-5 text-4xl font-bold sm:text-5xl">Sua próxima parada fica aqui.</h2>
+          <h2 className="mt-5 text-3xl font-bold sm:text-4xl lg:text-5xl">Sua próxima parada fica aqui.</h2>
           <div className="mt-8 space-y-6">
             <Row icon={MapPin} title="Endereço">
               <p>{info.address}</p>
@@ -39,7 +39,7 @@ export default function Location() {
 
         <Reveal delay={150}>
           {/* Mapa ilustrativo: não aponta para nenhum local real */}
-          <div className="relative h-full min-h-[360px] overflow-hidden rounded-[2rem] bg-forest shadow-2xl">
+          <div className="relative h-full min-h-[300px] overflow-hidden sm:min-h-[360px] rounded-[2rem] bg-forest shadow-2xl">
             <svg viewBox="0 0 600 460" className="absolute inset-0 h-full w-full" preserveAspectRatio="xMidYMid slice" aria-hidden>
               <rect width="600" height="460" fill="#1f4a36" />
               {[...Array(12)].map((_, i) => (
@@ -71,9 +71,9 @@ function Row({ icon: Icon, title, children }: { icon: typeof MapPin; title: stri
       <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-forest text-gold">
         <Icon className="h-5 w-5" />
       </span>
-      <div>
+      <div className="min-w-0">
         <h3 className="text-base font-bold">{title}</h3>
-        <div className="mt-1 text-forest/75">{children}</div>
+        <div className="mt-1 break-words text-forest/75">{children}</div>
       </div>
     </div>
   )

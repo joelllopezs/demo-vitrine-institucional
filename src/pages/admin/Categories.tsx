@@ -49,7 +49,7 @@ export default function Categories() {
           const n = products.filter((p) => p.categoryId === c.id).length
           const editing = editId === c.id
           return (
-            <div key={c.id} className="flex flex-wrap items-center gap-3 border-b border-forest/10 px-5 py-4 last:border-0">
+            <div key={c.id} className="flex flex-wrap items-center gap-3 border-b border-forest/10 px-4 py-4 last:border-0 sm:px-5">
               {editing ? (
                 <input className="field max-w-xs flex-1" value={editName} onChange={(e) => setEditName(e.target.value)} autoFocus onKeyDown={(e) => e.key === 'Enter' && saveEdit(c.id)} />
               ) : (
