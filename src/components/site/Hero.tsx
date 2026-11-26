@@ -8,7 +8,7 @@ export default function Hero() {
       <SafeImage
         src={IMG.hero}
         alt="Mesa farta de comida mineira com panelas de ferro, feijão tropeiro, torresmo e pão de queijo"
-        className="absolute inset-0 h-full w-full !bg-forest"
+        className="absolute inset-0 z-0 h-full w-full !bg-forest"
         imgClassName="animate-ken-burns object-center"
         eager
       />

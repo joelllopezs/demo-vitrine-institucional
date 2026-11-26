@@ -17,8 +17,12 @@ export default function SafeImage({ src, alt, className = '', imgClassName = '',
     setState(src ? 'loading' : 'error')
   }, [src])
 
+  // Só aplica `relative` quando o chamador não pediu outro posicionamento;
+  // senão o `relative` anula o `absolute` (ex.: imagem de fundo do Hero).
+  const positioned = /(^|\s)(absolute|fixed|sticky)(\s|$)/.test(className)
+
   return (
-    <div className={`relative overflow-hidden bg-sand ${className}`}>
+    <div className={`${positioned ? '' : 'relative'} overflow-hidden bg-sand ${className}`}>
       {state === 'loading' && <div className="skeleton absolute inset-0" />}
       {state === 'error' ? (
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-pine to-forest text-gold/80">
