@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body { @apply bg-cream font-sans text-forest antialiased; }
+  h1, h2, h3, h4 { @apply font-display; }
+  ::selection { background: #c49a52; color: #183d2c; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  .container-vm { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-gold { @apply btn bg-gold text-forest hover:-translate-y-0.5 hover:bg-[#d6ac63] hover:shadow-lg hover:shadow-gold/30; }
+  .btn-green { @apply btn bg-forest text-cream hover:-translate-y-0.5 hover:bg-pine hover:shadow-lg hover:shadow-forest/25; }
+  .btn-outline-light { @apply btn border border-cream/60 text-cream hover:bg-cream hover:text-forest; }
+  .btn-outline { @apply btn border border-forest/25 text-forest hover:border-forest hover:bg-forest hover:text-cream; }
+  .btn-danger { @apply btn bg-red-700 text-white hover:bg-red-800; }
+  .btn-sm { @apply px-4 py-2 text-xs; }
+  .eyebrow { @apply inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] text-gold; }
+  .eyebrow::before { content: ''; @apply h-px w-8 bg-gold; }
+  .field { @apply w-full rounded-xl border border-forest/15 bg-white px-4 py-2.5 text-sm text-forest outline-none transition placeholder:text-forest/35 focus:border-gold focus:ring-2 focus:ring-gold/30; }
+  .label { @apply mb-1.5 block text-xs font-semibold uppercase tracking-wide text-forest/70; }
+  .skeleton {
+    background: linear-gradient(90deg, #e9ddc8 25%, #f3ead8 50%, #e9ddc8 75%);
+    background-size: 200% 100%;
+    @apply animate-shimmer;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--d, 0ms);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+.grain { background-image: radial-gradient(rgba(107, 66, 43, 0.06) 1px, transparent 1px); background-size: 18px 18px; }
